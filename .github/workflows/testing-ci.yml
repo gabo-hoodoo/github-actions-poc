@@ -16,5 +16,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "🍏 This job's short sha is ${{ github.sha | slice(0, 7) }}."
+      - uses: benjlevesque/short-sha@v2.2
+        id: short-sha
+        with:
+          length: 6
+      - run: echo "${{ steps.short-sha.outputs.sha }}"
       

@@ -16,5 +16,5 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "🍏 This job's short sha is ${ GITHUB_SHA::7 }."
+      - run: echo "🍏 This job's short sha is ${{ github.sha }}."
       

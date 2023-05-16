@@ -17,9 +17,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - uses: benjlevesque/short-sha@v2.2
-        id: short-sha
-        with:
-          length: 6
-      - run: echo "${{ env.SHA }}"
+      - name: Add SHORT_SHA env property with commit short sha
+        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+
+  Other-Job:
+    steps: 
+      - name: My step
+      run: echo "${{SHORT_SHA}}"
+      
+
       

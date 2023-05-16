@@ -22,9 +22,9 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Check outputs
         env: 
-          IMAGE_TAG: "${{ steps.vars.outputs.sha_short }}"
+          IMAGE_TAG: $SHORT_SHA
         run: |
-          echo $SHORT_SHA
+          echo $IMAGE_TAG
 
 
 

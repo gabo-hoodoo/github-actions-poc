@@ -21,9 +21,12 @@ jobs:
         run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
 
   Other-Job:
-    steps: 
-      - name: My step
-      run: echo "${{SHORT_SHA}}"
-      
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{env.SHORT_SHA}}"
+
+
+
+
 
       
